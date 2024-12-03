@@ -18,6 +18,10 @@ namespace MinHeap
             minHeap.Add(4);
             minHeap.Add(5);
             minHeap.Add(6);
+            Console.WriteLine(minHeap.ToString());
+
+            minHeap.ClearHeap();
+            Console.WriteLine(minHeap.ToString());
 
 
             Console.WriteLine(minHeap.ToString());

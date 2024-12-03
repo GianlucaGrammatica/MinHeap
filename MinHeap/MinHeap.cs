@@ -36,7 +36,7 @@ namespace MinHeap
             return true;
         }
 
-        //
+        // Manipolazione Heap
         public void Add(int toAdd)
         {
             Count++;
@@ -46,9 +46,28 @@ namespace MinHeap
             }
         }
 
+        public void ClearHeap()
+        {
+            Count = 0;
+            Base[1] = 0;
+        }
+
+
+        // Ordinamento
+        private void Sort()
+        {
+
+        }
+
+        // Accesso Heap
         public override string ToString()
         {
             string toReturn = "";
+
+            if(Count <= 0) {
+                return "empty";
+            }
+
             for(int i = 1; i < Count+1; i++)
             {
                 toReturn += Base[i].ToString()+"\t";
