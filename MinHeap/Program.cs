@@ -17,7 +17,10 @@ namespace MinHeap
             minHeap.Add(3);
             minHeap.Add(4);
             minHeap.Add(5);
+            minHeap.Add(6);
 
+
+            Console.WriteLine(minHeap.ToString());
             Console.ReadKey();
         }
     }

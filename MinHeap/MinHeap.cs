@@ -45,5 +45,16 @@ namespace MinHeap
                 Base[Count] = toAdd; 
             }
         }
+
+        public override string ToString()
+        {
+            string toReturn = "";
+            for(int i = 1; i < Count+1; i++)
+            {
+                toReturn += Base[i].ToString()+"\t";
+            }
+
+            return toReturn;
+        }
     }
 }
