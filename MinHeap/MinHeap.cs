@@ -56,10 +56,48 @@ namespace MinHeap
         // Ordinamento
         private void Sort()
         {
+            for (int i = Count / 2; i >= 1; i--)
+            {
+                int Samllest = i;
+                int Left = 2 * i;
+                int Rigth = 2 * i + 1;
 
+                if (Left <= Count && Base[Left] < Base[Samllest])
+                {
+                    Samllest = Left;
+                }
+
+                if (Rigth <= Count && Base[Rigth] < Base[Samllest])
+                {
+                    Samllest = Rigth;
+                }
+
+
+                if (Samllest != i)
+                {
+                    int temp = Base[i];
+                    Base[i] = Base[Samllest];
+                    Base[Samllest] = temp;
+                }
+            }
         }
 
         // Accesso Heap
+        public int GetMin()
+        {
+            if (Count == 0)
+            {
+                throw new InvalidOperationException("Heap is empty");
+            }
+
+            int min = Base[1];
+            Base[1] = Base[Count];
+            Count--;
+
+            Sort();
+            return min;
+        }
+
         public override string ToString()
         {
             string toReturn = "";

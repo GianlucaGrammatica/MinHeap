@@ -14,15 +14,14 @@ namespace MinHeap
 
             minHeap.Add(1);
             minHeap.Add(2);
-            minHeap.Add(3);
-            minHeap.Add(4);
             minHeap.Add(5);
+            minHeap.Add(4);
+            minHeap.Add(3);
+            minHeap.Add(9);
             minHeap.Add(6);
             Console.WriteLine(minHeap.ToString());
 
-            minHeap.ClearHeap();
-            Console.WriteLine(minHeap.ToString());
-
+            Console.WriteLine($"\nMin: {minHeap.GetMin()}\n");
 
             Console.WriteLine(minHeap.ToString());
             Console.ReadKey();
