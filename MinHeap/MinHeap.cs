@@ -44,6 +44,8 @@ namespace MinHeap
             {
                 Base[Count] = toAdd; 
             }
+
+            HeapSort();
         }
 
         public void ClearHeap()
@@ -54,31 +56,52 @@ namespace MinHeap
 
 
         // Ordinamento
-        private void Sort()
+
+        private void Heapify(int i)
+        {
+
+            int Smallest = i;
+            int Left = i * 2;
+            int Rigth = i * 2 + 1;
+
+
+            if (Left < Count && Base[Left] < Base[Smallest])
+            {
+                Smallest = Left;
+            }                
+
+            if (Rigth < Count && Base[Rigth] < Base[Smallest])
+            {
+                Smallest = Rigth;
+            }
+            
+
+            if (Smallest != i)
+            {
+                int temp = Base[i];
+                Base[i] = Base[Smallest];
+                Base[Smallest] = temp;
+
+                Heapify(Smallest);
+            }
+        }
+
+        void HeapSort()
         {
             for (int i = Count / 2; i >= 1; i--)
             {
-                int Samllest = i;
-                int Left = 2 * i;
-                int Rigth = 2 * i + 1;
+                Heapify(i);
+            }
+                
 
-                if (Left <= Count && Base[Left] < Base[Samllest])
-                {
-                    Samllest = Left;
-                }
+            for (int i = Count - 1; i >= 1; i--)
+            {
 
-                if (Rigth <= Count && Base[Rigth] < Base[Samllest])
-                {
-                    Samllest = Rigth;
-                }
+                int temp = Base[1];
+                Base[1] = Base[i];
+                Base[i] = temp;
 
-
-                if (Samllest != i)
-                {
-                    int temp = Base[i];
-                    Base[i] = Base[Samllest];
-                    Base[Samllest] = temp;
-                }
+                Heapify(1);
             }
         }
 
@@ -94,7 +117,7 @@ namespace MinHeap
             Base[1] = Base[Count];
             Count--;
 
-            Sort();
+            HeapSort();
             return min;
         }
 
